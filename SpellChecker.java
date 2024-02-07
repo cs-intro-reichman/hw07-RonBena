@@ -52,6 +52,10 @@ public class SpellChecker {
 	for(int i = 0; i < dictionary.length; i++)
 	{
 		currentTresh = levenshtein(dictionary[i], word);
+		if(currentTresh <= threshold)
+		{
+			correct = dictionary[i];
+		}
 		if(currentTresh<smallest)
 		{
 			smallest = currentTresh;
