@@ -22,9 +22,8 @@ public class SpellChecker {
 			if(word2.isEmpty())
 			return word1.length();
 
-		word1.toLowerCase();
-		word2.toLowerCase();
-			int dis = 0;
+		word1 = word1.toLowerCase();
+		word2 = word2.toLowerCase();
 			if(word1.charAt(0)== word2.charAt(0) )
 			{
 				return levenshtein(tail(word1), tail(word2));
@@ -59,9 +58,10 @@ public class SpellChecker {
 			smallest = currentTresh;
 			correct = dictionary[i];
 		}
+		return correct;
 		
 	}
-	return correct;
+	return word;
 	}
 
 }
