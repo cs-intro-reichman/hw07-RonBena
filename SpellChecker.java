@@ -46,7 +46,6 @@ public class SpellChecker {
 	}
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
-		word = word.toLowerCase();
 		String correct = word;
 		int currentTresh=0;
 		int smallest = threshold;
@@ -59,7 +58,7 @@ public class SpellChecker {
 			correct = dictionary[i];
 		}
 	}
-	if(levenshtein(word, correct)> threshold)
+	if(levenshtein(word, correct) > threshold)
 	return word;
 	else
 	return correct;
