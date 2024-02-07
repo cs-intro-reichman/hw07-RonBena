@@ -46,8 +46,13 @@ public class SpellChecker {
 		return dictionary;
 	}
 
-	// public static String spellChecker(String word, int threshold, String[] dictionary) {
-	
-	// }
+	public static String spellChecker(String word, int threshold, String[] dictionary) {
+	for(int i = 0; i < dictionary.length; i++)
+	{
+		if(levenshtein(dictionary[i], word) <= threshold)
+		return dictionary[i];
+	}
+	return "";
+	}
 
 }
