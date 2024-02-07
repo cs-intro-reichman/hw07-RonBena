@@ -30,7 +30,7 @@ public class SpellChecker {
 			}
 			else 
 			{
-				return 1 + Math.min(levenshtein(tail(word1), tail(word2)),Math.min(levenshtein((word1), tail(word2)),levenshtein(tail(word1), tail(word2))));
+				return 1 + Math.min(levenshtein(tail(word1), tail(word2)),Math.min(levenshtein((word1), tail(word2)),levenshtein(tail(word1), (word2))));
 			}
 	}
 
