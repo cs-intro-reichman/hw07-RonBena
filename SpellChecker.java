@@ -47,12 +47,21 @@ public class SpellChecker {
 	}
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
+		word.toLowerCase();
+		String correct = word;
+		int currentTresh=0;
+		int smallest = threshold;
 	for(int i = 0; i < dictionary.length; i++)
 	{
-		if(levenshtein(dictionary[i], word) <= threshold)
-		return dictionary[i];
+		currentTresh = levenshtein(dictionary[i], word);
+		if(currentTresh<smallest)
+		{
+			smallest = currentTresh;
+			correct = dictionary[i];
+		}
+		
 	}
-	return "";
+	return correct;
 	}
 
 }
