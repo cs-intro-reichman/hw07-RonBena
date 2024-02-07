@@ -11,13 +11,15 @@ public class SpellChecker {
 	}
 
 	public static String tail(String str) {
-	str = str.substring(1);
-	return str;
+		if(str.length() == 1)
+			return "";
+		else
+			return str.substring(1);
 	}
 	public static int levenshtein(String word1, String word2) {
-		if(word1.length()==0)
+		if(word1.isEmpty())
 			return word2.length();
-			if(word2.length()==0)
+			if(word2.isEmpty())
 			return word1.length();
 
 		word1.toLowerCase();
@@ -27,12 +29,10 @@ public class SpellChecker {
 			{
 				return levenshtein(tail(word1), tail(word2));
 			}
-			else if(word1.charAt(0)!= word2.charAt(0))
+			else 
 			{
-				dis++;
-				dis = dis + Math.min(levenshtein(tail(word1), tail(word2)),Math.min(levenshtein((word1), tail(word2)),levenshtein(tail(word1), tail(word2))));
+				return 1 + Math.min(levenshtein(tail(word1), tail(word2)),Math.min(levenshtein((word1), tail(word2)),levenshtein(tail(word1), tail(word2))));
 			}
-			return dis;
 	}
 
 	public static String[] readDictionary(String fileName) {
